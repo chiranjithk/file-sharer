@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <style>
+        body{
+            height: 100vh;   
+            display: flex;
+            background-color: aqua;
+            flex-direction: column;
+            align-items: center;
+        }
+        .file-sharer{
+            width: 100vw;
+            height: 80px;
+            font-size: 25px;
+            margin-top: -5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(22, 224, 214);
+        }
+        form{
+            font-size: 30px;
+            border-radius: 10px;
+            border: 1px solid black;
+            padding: 30px;
+            font-family:'Times New Roman', Times, serif;
+            background-image: linear-gradient(rgb(255, 255, 255,0.18),rgb(134, 122, 122));
+            margin-top: 30vh;
+        }
+        input{
+            font-size: 20px;
+            padding: 15px;
+        }
+        button{
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+
+        }
+        .pas{
+            font-size: 20px !important;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        label{
+            display: block;
+        }
+        .link{
+            font-size: 20px;
+            margin-top: 20vh;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="file-sharer"><h1>File Sharer</h1></div>
+    <% if(locals.fileLink !=null) {%>
+        <div class="link">
+             <a href="<%= locals.fileLink%>"><%= locals.fileLink%></a> 
+        </div>
+    <% } %>
+    <div>
+    <form action="/uploads" method="post" enctype="multipart/form-data">
+        <label for="file">File</label>
+        <input type="file" id="file" name="file" required>
+        <label for="password">Password</label>
+        <input class="pas" type="password" id="password" name="password">
+        <button>Share</button>
+    </form>
+    </div>
+</body>
+</html>
